@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: true,
+  //baseUrl: 'https://svcbmf.net/server/'
+  baseUrl: 'http://localhost:8888/proyectos/RedCLH/server/'
+  //baseUrl:'http://127.0.0.1:8000/api/',
+  //storage:'http://127.0.0.1:8000/app/',
 };
 
 /*

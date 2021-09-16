@@ -1,13 +1,59 @@
 <!doctype html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <title>RedclhWebApp</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta charset="utf-8">
+    <title>RedclhWebApp</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="./assets/img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/menulateralpush.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/component.css" />
+    <script src="./assets/js/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('.ancla').click(function() {
+                var link = $(this);
+                var anchor = link.attr('href');
+                $('html, body').stop().animate({
+                    scrollTop: jQuery(anchor).offset().top
+                }, 2000);
+                return false;
+            });
+        });
+    </script>
+
 </head>
+
 <body>
-  <app-root></app-root>
+    <app-root></app-root>
 </body>
+
+
+<script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+<script src="./assets/js/modernizr.custom.js"></script>
+<script src="./assets/js/header.js" type="text/javascript"></script>
+<script src="./assets/js/parallax.js"></script>
+<script src="./assets/js/parallax.min.js"></script>
+<script src="./assets/js/backtotop.js"></script>
+
+
+<script src="./assets/js/jquery.min.js"></script>
+<script src="./assets/js/waypoints.min.js"></script>
+
+
+<!-- Classie - class helper functions by @desandro https://github.com/desandro/classie -->
+<script src="./assets/js/classie.js"></script>
+<!--script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script-->
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/menu.js"></script>
+
+
+<script src="./assets/js/raphael-min.js" type="text/javascript" charset="utf-8"></script>
+
+
+
+
 </html>

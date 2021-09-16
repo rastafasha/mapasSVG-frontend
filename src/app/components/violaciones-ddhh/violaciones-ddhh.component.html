@@ -1,0 +1,45 @@
+<div *ngIf="!paisrespuestaViolaciones">
+    <h2>no hay información</h2>
+</div>
+
+<div class="datos-victimas flex-container" *ngFor="let viol of paisrespuestaViolaciones; let i=index ">
+    <div class="item infografia">
+        <i class="fa fa-user"></i>
+        <h2>Violaciones de DDHH documentadas</h2>
+        <h3>Total</h3>
+        <h1>{{viol.violacionesDdhhTotal}}</h1>
+    </div>
+    <div class="item infografia">
+        <i class="fa fa-user"></i>
+        <h2>Clasificación de las violaciones DDHH</h2>
+        <h3>Derechos Civiles y Políticos</h3>
+        <h1>{{viol.clasificacionDCP}}</h1>
+        <h3>Derechos Económicos, Sociales, Culturales y Ambientales</h3>
+        <h1>{{viol.clasificacionDESCA}}</h1>
+        <h3>Derechos de los Pueblos</h3>
+        <h1>{{viol.calsificacionPueblos}}</h1>
+    </div>
+    <div class="item infografia">
+        <i class="fa fa-user"></i>
+        <h2>Lugar de comisión de los hechos violatorios</h2>
+        <h1>{{viol.lugar}}</h1>
+    </div>
+    <div class="item infografia">
+        <i class="fa fa-user"></i>
+        <h2>Breve descripción del caso</h2>
+        <p>{{viol.breveDescripcion}}</p>
+    </div>
+    <div class="item infografia">
+        <i class="fa fa-user"></i>
+        <h2>Número de casos que pueden concursar en los Sistemas de Protección Internacional de DDHH</h2>
+        <h3>Casos que por su naturaleza pueden remitirse a la Corte Interamericana de DDHH: </h3>
+        <h1>{{viol.numCasosCorteInterDDHH}}</h1>
+        <h3>Casos que por su naturaleza pueden remitirse al Comité de DDHH de las NU: </h3>
+        <h1>{{viol.numCasosComDHNU}}</h1>
+    </div>
+    <div class="item infografia">
+        <i class="fa fa-user"></i>
+        <h2>Casos en los que las víctimas prefieren no accionar ante los sistemas de protección</h2>
+        <h1>{{viol.casosNoAccionar}}</h1>
+    </div>
+</div>

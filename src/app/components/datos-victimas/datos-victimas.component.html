@@ -1,0 +1,61 @@
+<div *ngIf="!paisrespuesta">
+    <h2>no hay información</h2>
+</div>
+
+<div class="datos-victimas flex-container" *ngFor="let datosv of paisrespuesta; let i=index">
+    <div class="item infografia infografia-titulo">
+        <i class="fa fa-user"></i>
+        <h2>Num. Victimas pais actual</h2>
+        <h3>Total</h3>
+        <h1>{{datosv.numDatosvictimas}}</h1>
+    </div>
+    <div class="item infografia">
+        <i class="fa fa-user"></i>
+        <h2>Género de las víctimas</h2>
+        <div class="grafico-torta"></div>
+        <div class="info-genero">
+            <h3>Hombres</h3>
+            <h1>{{datosv.generoVictimasHombre}}</h1>
+            <h3>Mujeres</h3>
+            <h1>{{datosv.generoVictimasMujer}}</h1>
+        </div>
+    </div>
+    <div class="item infografia">
+        <i class="fa fa-user"></i>
+        <h2>Edad de las Víctimas</h2>
+        <div class="cuadroinfo">
+            <p>Niños</p>
+            <h1>{{datosv.edadVictimaNino}}</h1>
+        </div>
+        <div class="cuadroinfo">
+            <p>Jovenes</p>
+            <h1>{{datosv.edadVictimaJoven}}</h1>
+        </div>
+        <div class="cuadroinfo">
+            <p>Adultos</p>
+            <h1>{{datosv.edadVictimaAdulto}}</h1>
+        </div>
+        <div class="cuadroinfo">
+            <p>Ancianos</p>
+            <h1>{{datosv.edadVictimaOld}}</h1>
+        </div>
+    </div>
+    <div class="item infografia">
+        <i class="fa fa-user"></i>
+        <h2>Estatus migratorio</h2>
+        <h3>Regulares: </h3>
+        <h1>{{datosv.estatusMigratorioRegular}}</h1>
+        <h3>Irregulares: </h3>
+        <h1>{{datosv.estatusMigratorioIrregular}}</h1>
+    </div>
+    <div class="item infografia">
+        <i class="fa fa-user"></i>
+        <h2>Estatus de consulados</h2>
+        <p>{{datosv.estatusConsulado}}</p>
+    </div>
+    <div class="item infografia">
+        <i class="fa fa-user"></i>
+        <h2>Estado de la integridad</h2>
+        <h1>{{datosv.estadoIntegridad}}</h1>
+    </div>
+</div>
