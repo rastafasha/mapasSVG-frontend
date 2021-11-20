@@ -5,6 +5,7 @@ export class Pais {
   code: string;
   ciudades: string;
   informacion: string;
-  isActive: boolean;
+  isActive: string;
   created_at: Date;
+  length: number;
 }

@@ -4,7 +4,7 @@ import { throwError, Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { Params, Router } from '@angular/router';
-import { PaisResposive } from '../interfaces/pais.interface';
+import { PaisResponsive } from '../interfaces/pais.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -24,13 +24,13 @@ export class ViolacionesddhhService {
 
 
   getViolacionesddhhs() {
-    return this.http.get<PaisResposive>(this.serverUrl + 'api_violacionesddhh/violacionesddhh/').pipe(
+    return this.http.get<PaisResponsive>(this.serverUrl + 'api_violacionesddhh/violacionesddhh/').pipe(
       catchError(this.handleError)
     );
   }
 
   getViolacionesddhh(code: string) {
-    return this.http.get<PaisResposive>(this.serverUrl + 'api_violacionesddhh/violacionesddhh/' + code).pipe(
+    return this.http.get<PaisResponsive>(this.serverUrl + 'api_violacionesddhh/violacionesddhhs/' + code).pipe(
       catchError(this.handleError)
     );
   }

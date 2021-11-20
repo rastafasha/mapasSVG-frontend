@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { Params, Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 //import { Crimeneslh } from '../models/crimeneslh';
-import { PaisResposive } from '../interfaces/pais.interface';
+import { PaisResponsive } from '../interfaces/pais.interface';
 
 
 @Injectable({
@@ -26,13 +26,13 @@ export class CrimeneslhService {
   }
 
   getCrimeneslhs() {
-    return this.http.get<PaisResposive>(this.serverUrl + 'api_crimeneslh/crimeneslhs/').pipe(
+    return this.http.get<PaisResponsive>(this.serverUrl + 'api_crimeneslh/crimeneslhs/').pipe(
       catchError(this.handleError)
     );
   }
 
   getCrimeneslh(code: string) {
-    return this.http.get<PaisResposive>(this.serverUrl + 'api_crimeneslh/crimeneslhs/' + code).pipe(
+    return this.http.get<PaisResponsive>(this.serverUrl + 'api_crimeneslh/crimeneslhs/' + code).pipe(
       catchError(this.handleError)
     );
   }

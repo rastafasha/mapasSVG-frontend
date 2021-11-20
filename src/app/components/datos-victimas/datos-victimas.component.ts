@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { HttpClient, HttpBackend} from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
-import { PaisResposive } from '../../interfaces/pais.interface';
+import { PaisResponsive } from '../../interfaces/pais.interface';
 import { MapaService } from 'src/app/services/mapa.service';
 
 
@@ -17,11 +17,12 @@ import { MapaService } from 'src/app/services/mapa.service';
 })
 export class DatosVictimasComponent implements OnInit {
 
-  @Input() paisrespuesta:PaisResposive;
+  @Input() paisrespuesta:PaisResponsive;
+  @Input() paisrespuestaDatosv:PaisResponsive;
   stringJson: any;
-  pais$:PaisResposive;
+  pais$:PaisResponsive;
 
-  datosvs$: Observable<PaisResposive>;
+  datosvs$: Observable<PaisResponsive>;
   error: {};
   ServerUrl = environment.baseUrl;
   private http: HttpClient;
@@ -55,7 +56,7 @@ export class DatosVictimasComponent implements OnInit {
 
   }
 
-  getPaisVictimas(event:string){
+  getPaisVictimas(ev:string){
 
 
     const code = this.activatedRoute.snapshot.paramMap.get('event');//se llama el id requerido
@@ -63,30 +64,30 @@ export class DatosVictimasComponent implements OnInit {
 
      this.activatedRoute.params.subscribe( params =>{
 
-       const code = this.datosvictimaService.getDatosvictimabyPais(event).subscribe (
-         (resp:PaisResposive) => {
+       const code = this.datosvictimaService.getDatosvictimabyPais(ev).subscribe (
+         (resp:PaisResponsive) => {
 
-           this.paisrespuesta = resp;
+           this.paisrespuestaDatosv = resp;
            //console.log(this.paisrespuesta);
-           this.stringJson = JSON.stringify(this.paisrespuesta).replace(/['"]+/g, '');
+           this.stringJson = JSON.stringify(this.paisrespuestaDatosv).replace(/['"]+/g, '');
            //console.log("String json object :", this.stringJson);
 
          }
        )
-         return this.paisrespuesta;
+         return this.paisrespuestaDatosv;
      })
 
    }
 
 
 
-  getDatosbyPais(event:string){
+  getDatosbyPais(){
     // sacar el id del post del la url
     this.activatedRoute.params.subscribe(params => {
-      const code = +params.code;
+      const id = +params.code;
 
       // peticion ajax para sacar los datos del post
-      this.datosvictimaService.getDatosvictimabyPais(event).subscribe(
+      this.datosvictimaService.getDatosvictimabyPais(id).subscribe(
         response => {
           if (response.status === 'success'){
             this.datosvictima = response.datosvictima;

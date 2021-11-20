@@ -4,10 +4,9 @@
 
 export const environment = {
   production: true,
-  //baseUrl: 'https://svcbmf.net/server/'
-  baseUrl: 'http://localhost:8888/proyectos/RedCLH/server/'
-  //baseUrl:'http://127.0.0.1:8000/api/',
-  //storage:'http://127.0.0.1:8000/app/',
+  //baseUrl: 'http://malcolmcordova.com/RedCLH/server/'
+  //baseUrl: 'http://localhost:8888/proyectos/RedCLH/server/'
+  baseUrl: 'https://redclh.org/server/'
 };
 
 /*

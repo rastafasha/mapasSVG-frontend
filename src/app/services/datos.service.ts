@@ -6,7 +6,7 @@ import { environment } from '../../environments/environment';
 import { Params, Router } from '@angular/router';
 //import { Datosvictima } from '../models/datos';
 
-import { PaisResposive } from '../interfaces/pais.interface';
+import { PaisResponsive } from '../interfaces/pais.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -26,20 +26,20 @@ export class DatosvictimaService {
   }
 
   getDDatosvictimas() {
-    return this.http.get<PaisResposive>(this.serverUrl + 'api_datosvictima/datosvictimas/').pipe(
+    return this.http.get<PaisResponsive>(this.serverUrl + 'api_datosvictima/datosvictimas/').pipe(
       catchError(this.handleError)
     );
   }
 
   getDatosvictima(code: string) {
-    return this.http.get<PaisResposive>(this.serverUrl + 'api_datosvictima/datosvictimas/' + code).pipe(
+    return this.http.get<PaisResponsive>(this.serverUrl + 'api_datosvictima/datosvictima/' + code).pipe(
       catchError(this.handleError)
     );
   }
 
   getDatosvictimabyPais(code): Observable<any>{
     const headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
-    return this.http.get( this.serverUrl + 'api_datosvictima/datosvictimas/pais/' + code, {headers});
+    return this.http.get( this.serverUrl + 'api_datosvictima/datosvictima/' + code, {headers});
 
   }
 

@@ -3,9 +3,9 @@ import { Crimeneslh } from 'src/app/models/crimeneslh';
 import { CrimeneslhService } from 'src/app/services/crimeneslh.service';
 import { Router, ActivatedRoute, ParamMap} from '@angular/router';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpBackend} from '@angular/common/http';
+import { HttpClient, HttpBackend, HttpErrorResponse } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
-import { PaisResposive } from '../../interfaces/pais.interface';
+import { PaisResponsive } from '../../interfaces/pais.interface';
 import { MapaService } from 'src/app/services/mapa.service';
 
 
@@ -16,10 +16,10 @@ import { MapaService } from 'src/app/services/mapa.service';
   styleUrls: ['./crimene-lh.component.css']
 })
 export class CrimeneLhComponent implements OnInit {
-  @Input() paisrespuesta:PaisResposive;
-  @Input() paisrespuestacrimenes:{};
+  @Input() paisrespuesta:PaisResponsive;
+  @Input() crimpais;
   stringJson: any;
-  pais$:PaisResposive;
+  pais$:PaisResponsive;
 
   crimenes$: Observable<Crimeneslh>;
   crimeneslh: Crimeneslh;
@@ -63,24 +63,27 @@ export class CrimeneLhComponent implements OnInit {
      this.activatedRoute.params.subscribe( params =>{
 
        const code = this.crimeneslhService.getCrimenesbyPais(event).subscribe (
-         (resp:PaisResposive) => {
+         (resp:PaisResponsive) => {
 
-           this.paisrespuestacrimenes = resp;
+           this.crimpais = resp;
            //console.log(this.paisrespuesta);
-           this.stringJson = JSON.stringify(this.paisrespuestacrimenes).replace(/['"]+/g, '');
+           this.stringJson = JSON.stringify(this.crimpais).replace(/['"]+/g, '');
            //console.log("String json object :", this.stringJson);
+
 
          }
        )
-         return this.paisrespuestacrimenes;
+         return this.crimpais;
      })
+
+
 
    }
 
 
 
 
-  getCrimenesbyPais(){
+  /*getCrimenesbyPais(){
     // sacar el id del post del la url
     this.activatedRoute.params.subscribe(params => {
       const id = +params.id;
@@ -105,6 +108,6 @@ export class CrimeneLhComponent implements OnInit {
 
     });
 
-  }
+  }*/
 
 }

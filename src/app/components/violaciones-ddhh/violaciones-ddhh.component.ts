@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 import { Violacionesddhh } from 'src/app/models/violaciones';
 import { ViolacionesddhhService } from 'src/app/services/violaciones.service';
 
-import { PaisResposive } from '../../interfaces/pais.interface';
+import { PaisResponsive } from '../../interfaces/pais.interface';
 import { MapaService } from 'src/app/services/mapa.service';
 
 @Component({
@@ -14,10 +14,10 @@ import { MapaService } from 'src/app/services/mapa.service';
   styleUrls: ['./violaciones-ddhh.component.css']
 })
 export class ViolacionesDdhhComponent implements OnInit {
-  @Input() paisrespuesta:PaisResposive;
+  @Input() paisrespuesta:PaisResponsive;
   paisrespuestaViolaciones:{};
   stringJson: any;
-  pais$:PaisResposive;
+  pais$:PaisResponsive;
 
   violaciones$: Observable<Violacionesddhh>;
   public violacionesddhh: Violacionesddhh;
@@ -59,12 +59,12 @@ export class ViolacionesDdhhComponent implements OnInit {
      this.activatedRoute.params.subscribe( params =>{
 
        const code = this.violacionesddhhServices.getViolacionbyPais(event).subscribe (
-         (resp:PaisResposive) => {
+         (resp:PaisResponsive) => {
 
            this.paisrespuestaViolaciones = resp;
            this.paisrespuestaViolaciones = Array.of(this.paisrespuestaViolaciones);;
            //console.log(this.paisrespuesta);
-           //this.stringJson = JSON.stringify(this.paisrespuestaViolaciones).replace(/['"]+/g, '');
+           this.stringJson = JSON.stringify(this.paisrespuestaViolaciones).replace(/['"]+/g, '');
            //console.log("String json object :", this.stringJson);
 
          }

@@ -6,7 +6,7 @@ import  {catchError, map, tap} from 'rxjs/operators';
 import { Params, Router } from '@angular/router';
 
 import { Pais } from '../models/pais';
-import {PaisResposive} from '../interfaces/pais.interface';
+import {PaisResponsive} from '../interfaces/pais.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +21,8 @@ export class PaisService {
 
   public cargando = false;
 
+  errorData: {};
+
 
   constructor(
     private http: HttpClient,
@@ -30,10 +32,10 @@ export class PaisService {
 
   }
 
-  getCarteleraPaises(): Observable<PaisResposive>{
+  getCarteleraPaises(): Observable<PaisResponsive>{
 
     this.cargando = true;
-    return this.http.get<PaisResposive>(`${this.serverUrl}/api_pais/paises`,)
+    return this.http.get<PaisResponsive>(`${this.serverUrl}/api_pais/paises`,)
     .pipe(
       map( resp => {
         return resp;
@@ -44,22 +46,26 @@ export class PaisService {
     }
 
   getPaises(): Observable<any>  {
-    return this.http.get<Pais>(this.serverUrl + 'api_pais/paises/').pipe(
+    return this.http.get<PaisResponsive>(this.serverUrl + 'api_pais/paises/')
+    .pipe(
+      map( resp => {
+        return resp;
+      }),
       catchError(this.handleError)
-    );
+    )
   }
 
   getPaisDetail(code:string){
 
-    return this.http.get<PaisResposive>(`${this.serverUrl}/api_pais/pais/${code}`).pipe(
-      catchError(err => of(null))
+    return this.http.get<PaisResponsive>(`${this.serverUrl}/api_pais/pais/${code}`).pipe(
+      catchError(this.handleError)
     )
 
   }
 
-  getPais(code:string): Observable<PaisResposive> {
+  getPais(code:string): Observable<PaisResponsive> {
 
-    return this.http.get<PaisResposive>(this.serverUrl + 'api_pais/pais/' + code).pipe(
+    return this.http.get<PaisResponsive>(this.serverUrl + 'api_pais/pais/' + code).pipe(
       catchError(this.handleError)
     );
   }
@@ -75,6 +81,10 @@ export class PaisService {
       console.error(`Backend returned code ${error.status}, ` + `body was: ${error.error}`);
     }
     // return an observable with a user-facing error message
-    return throwError('Something bad happened. Please try again later.');
+    this.errorData = {
+      errorTitle: 'Oops! Request for document failed',
+      errorDesc: 'Something bad happened. Please try again later.'
+    };
+    return throwError(this.errorData);
   }
 }

@@ -1,45 +1,51 @@
-<div *ngIf="!paisrespuestacrimenes">
-    <h2>no hay información</h2>
+<div *ngIf="!crimpais">
+    <div class="noinfo">
+        <img src="./assets/img/logo.jpg" alt="">
+        <h2>no hay información</h2>
+    </div>
 </div>
+<div *ngIf="crimpais && crimpais.crimeneslh">
 
-<div class="datos-victimas flex-container" *ngIf="paisrespuestacrimenes">
-    <div class="item infografia">
-        <i class="fa fa-user"></i>
-        <h2>Crímenes de Lesa Humanidad registrados por las víctimas en el país de residencia actual</h2>
-        <h1>{{paisrespuestacrimenes.crimeneslh}}</h1>
+    <div class="datos-victimas flex-container">
+        <div class="item infografia">
+            <i class="fa fa-user"></i>
+            <h2>Crímenes de Lesa Humanidad registrados por las víctimas en el país de residencia actual</h2>
+            <h1>{{crimpais.crimeneslh}}</h1>
+        </div>
+        <div class="item infografia">
+            <i class="fa fa-user"></i>
+            <h2>Clasificación de los casos de Crímenes de Lesa Humanidad y Violaciones de DDHH</h2>
+            <h3>Colectivos</h3>
+            <h1>{{crimpais.clasificacionColectiva}}</h1>
+            <h3>Individuales</h3>
+            <h1>{{crimpais.clasificacionIndividual}}</h1>
+        </div>
+        <div class="item infografia">
+            <i class="fa fa-user"></i>
+            <h2>Lugar de comisión de los hechos violatorios</h2>
+            <h1>{{crimpais.lugar}}</h1>
+        </div>
+        <div class="item infografia">
+            <i class="fa fa-user"></i>
+            <h2>Breve descripción del caso</h2>
+            <p [innerHTML]="crimpais.breveDescripcion"></p>
+        </div>
+        <div class="item infografia">
+            <i class="fa fa-user"></i>
+            <h2>Núm. de casos que pueden ser llevados a la CPI</h2>
+            <h3>Aprobado: </h3>
+            <h1>{{crimpais.numCasosCPIAprobados}}</h1>
+            <h3>Pendiente: </h3>
+            <h1>{{crimpais.numCasosCPIPendientes}}</h1>
+        </div>
+        <div class="item infografia">
+            <i class="fa fa-user"></i>
+            <h2>Núm. de casos en los que las víctimas prefieren no accionar ante la CPI de forma individual</h2>
+            <h3>Aprobado: </h3>
+            <h1>{{crimpais.numCasosNoCpiAprobado}}</h1>
+            <h3>Pendiente: </h3>
+            <h1>{{crimpais.numCasosNoCpiPendiente}}</h1>
+        </div>
     </div>
-    <div class="item infografia">
-        <i class="fa fa-user"></i>
-        <h2>Clasificación de los casos de Crímenes de Lesa Humanidad y Violaciones de DDHH</h2>
-        <h3>Colectivos</h3>
-        <h1>{{paisrespuestacrimenes.clasificacionColectiva}}</h1>
-        <h3>Individuales</h3>
-        <h1>{{paisrespuestacrimenes.clasificacionIndividual}}</h1>
-    </div>
-    <div class="item infografia">
-        <i class="fa fa-user"></i>
-        <h2>Lugar de comisión de los hechos violatorios</h2>
-        <h1>{{paisrespuestacrimenes.lugar}}</h1>
-    </div>
-    <div class="item infografia">
-        <i class="fa fa-user"></i>
-        <h2>Breve descripción del caso</h2>
-        <p>{{paisrespuestacrimenes.breveDescripcion}}</p>
-    </div>
-    <div class="item infografia">
-        <i class="fa fa-user"></i>
-        <h2>Núm. de casos que pueden ser llevados a la CPI</h2>
-        <h3>Aprobado: </h3>
-        <h1>{{paisrespuestacrimenes.numCasosCPIAprobados}}</h1>
-        <h3>Pendiente: </h3>
-        <h1>{{paisrespuestacrimenes.numCasosCPIPendientes}}</h1>
-    </div>
-    <div class="item infografia">
-        <i class="fa fa-user"></i>
-        <h2>Núm. de casos en los que las víctimas prefieren no accionar ante la CPI de forma individual</h2>
-        <h3>Aprobado: </h3>
-        <h1>{{paisrespuestacrimenes.numCasosNoCpiAprobado}}</h1>
-        <h3>Pendiente: </h3>
-        <h1>{{paisrespuestacrimenes.numCasosNoCpiPendiente}}</h1>
-    </div>
+
 </div>

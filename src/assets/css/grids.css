@@ -45,6 +45,26 @@
     text-align: center;
 }
 
+.noinfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    padding: 30px;
+    background-color: var(--azul);
+    border-radius: 0px 0px 20px 20px;
+}
+
+.noinfo img {
+    display: flex;
+    width: 10%;
+}
+
+.noinfo h2 {
+    color: #fff;
+}
+
 @media (max-width:668px) {
     .navTabs {
         display: grid;

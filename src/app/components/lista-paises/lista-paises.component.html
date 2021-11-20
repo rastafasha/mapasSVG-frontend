@@ -1,28 +1,15 @@
 <div *ngFor="let pais of paisrespuesta; let i=index">
 
 
-    <div class="row">
+    <div class="row ">
         <div class="col-xs-12 col-sm-6">
             <h6 class="text-muted m-t-10 m-b-0">{{pais.code }}</h6>
             <h2 class="m-t-0">{{pais.title }}</h2>
-            <p>{{pais.informacion }} </p>
+            <p [innerHTML]="pais.informacion"> </p>
         </div>
         <div class="col-xs-12 col-sm-6">
             <h6>Ciudad</h6>
-            {{pais.ciudades }}
+            <div class="inforesult" [innerHTML]="pais.ciudades"></div>
         </div>
     </div>
 </div>
-
-
-
-
-<!---paises--->
-
-<!--div *ngFor="let pais of paises">
-    <div class="inforesult col-xs-12" id="{{pais.code}}">
-        <h2>{{pais.title}}</h2>
-    </div>
-</div-->
-
-<!---paises--->

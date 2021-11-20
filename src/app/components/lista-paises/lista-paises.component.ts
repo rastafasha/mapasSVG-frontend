@@ -5,7 +5,7 @@ import { PaisService } from 'src/app/services/pais.service';
 
 import { Pais} from '../../models/pais';
 import { MapaComponent } from '../mapa/mapa.component';
-import { PaisResposive } from '../../interfaces/pais.interface';
+import { PaisResponsive } from '../../interfaces/pais.interface';
 import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 
@@ -19,10 +19,12 @@ export class ListaPaisesComponent implements OnInit {
 
 @Input() usuarioInChild;
 @Input() propagar;
-@Input() paisrespuesta:PaisResposive;
+@Input() paisrespuesta:PaisResponsive;
 
-pais$:PaisResposive;
+pais$:PaisResponsive;
 stringJson: any;
+
+public paises: PaisResponsive;
 
   constructor(
     private mapaService:MapaService,
@@ -43,7 +45,10 @@ stringJson: any;
 
 }
 
-  ngOnInit() { window.scrollTo(0, 0);}
+  ngOnInit() {
+     window.scrollTo(0, 0);
+    //this.activarBotonColor();
+    }
 
 
 
@@ -56,7 +61,7 @@ stringJson: any;
     this.activatedRoute.params.subscribe( params =>{
 
       const code = this.paisService.getPais(event).subscribe (
-        (resp:PaisResposive) => {
+        (resp:PaisResponsive) => {
 
           this.paisrespuesta = resp;
           //console.log(this.paisrespuesta);
@@ -71,19 +76,17 @@ stringJson: any;
   }
 
 
-  /*getPaiseslist(){
-    this.paisService.getPaises().subscribe(
-      response => {
-        if (response.status === 'success'){
-          this.paises = response.paises;
-          //console.log(this.paises);
-        }
+  getPaiseslist(){
+    this.paisService.getCarteleraPaises().subscribe(
+      resp => {
+        this.paises = resp;
       },
-      error => {
-        console.log(error);
-      }
-    );
-  }*/
+      err => console.error('Hay un error al obtener la lista')
+      );
+  }
+
+
+
 
 
 

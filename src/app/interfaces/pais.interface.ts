@@ -1,4 +1,4 @@
-export interface PaisResposive {
+export interface PaisResponsive {
 
   id: number;
   user_id: number;
@@ -6,7 +6,7 @@ export interface PaisResposive {
   code: string;
   ciudades: string;
   informacion: string;
-  isActive: boolean;
+  isActive: string;
   created_at: Date;
   datos:   Datosvictima[];
   violaciones:   Violacionesddhh[];

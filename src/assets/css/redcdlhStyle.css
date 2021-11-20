@@ -114,6 +114,9 @@
         overflow-x: scroll;
         overflow-y: scroll;
     }
+    .soluciones {
+        padding: 30px 15px;
+    }
 }
 
 @media(min-width:769px) {
